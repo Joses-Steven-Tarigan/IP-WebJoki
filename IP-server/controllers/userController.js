@@ -18,16 +18,20 @@ exports.register = async (req, res, next) => {
 exports.login = async (req, res, next) => {
     let { email, password } = req.body
     try {
-        if (!email || !password) throw { name: "EmailPasswordNotFound" }
+        if (!email || !password) {
+            throw { name: "EmailPasswordNotFound" }
+        }
 
         let user = await User.findOne({
             where: {
                 email
             }
         });
-        console.log(user.role, "ini user");
-        if (!user) throw { name: "InvalidEmailPassword" }
-
+        // console.log(user.role, "ini user");
+        if (!user) {
+            throw { name: "InvalidEmailPassword" }
+        }
+        
         if (!compare(password, user.password)) {
             throw { name: "InvalidEmailPassword" }
         }

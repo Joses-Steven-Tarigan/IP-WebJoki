@@ -6,10 +6,12 @@ import { Link } from 'react-router-dom'
 export default function Navbar(){
   return (
     <nav className='h-16 bg-cyan-600 flex justify-between px-24 items-center fixed w-full'>
+      <Link to="/">
       <h1 className='text-xl font-bold tracking-wide'>JockKey</h1>
+      </Link>
       <div className='space-x-6'>
         
-        <Link className='hover:text-white'  to="">Service</Link>
+        <Link className='hover:text-white'  to="/services">Service</Link>
         <Link className='hover:text-white'  to="/login">Sign In</Link>
       </div>
       <Link to="/register">
