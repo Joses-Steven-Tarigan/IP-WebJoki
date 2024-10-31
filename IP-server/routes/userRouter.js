@@ -3,7 +3,7 @@
 const router = require('express').Router();
 const { postInvoiceById } = require('../controllers/invoiceController');
 const { addService, getService, putServiceById, deletePostById } = require('../controllers/serviceController');
-const { register, login } = require('../controllers/userController');
+const { register, login, googleLogin } = require('../controllers/userController');
 const authentication = require('../middlewares/authentication');
 const memberAuthorization = require('../middlewares/authorization');
 const errorHandler=require('../middlewares/errorHandler');
@@ -11,6 +11,7 @@ const errorHandler=require('../middlewares/errorHandler');
 router.get("/", getService)
 router.post("/register", register)
 router.post("/login", login)
+router.post("/google-login", googleLogin)
 // router.get("/", getService)
 
 router.use(authentication)

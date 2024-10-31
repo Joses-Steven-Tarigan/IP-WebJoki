@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { jokiApi } from '../../helpers/axios'
 
@@ -34,8 +34,34 @@ export default function Login() {
           icon: "error",
           confirmButtonText: "Okay",
         });
+        
       }
     }
+
+    async function handleCredentialResponse(response) {
+      console.log("Encoded JWT ID token: " + response.credential);
+      await jokiApi({
+        method: "POST",
+        url: "/google-login",
+        headers: {
+          token: response.credential,
+        },
+      })
+      localStorage.setItem("access_token", response.data.access_token)
+      nav('/services')
+    }
+    useEffect(() => {
+
+      google.accounts.id.initialize({
+        client_id: "264303005650-bj9ubgmelc8rba74ikjd8e1kjdprs91v.apps.googleusercontent.com",
+        callback: handleCredentialResponse
+      });
+      google.accounts.id.renderButton(
+        document.getElementById("buttonDiv"),
+        { theme: "outline", size: "large" }  // customization attributes
+      );
+      google.accounts.id.prompt(); // also display the One Tap dialog
+    }, []);
 
 
   return (
@@ -103,6 +129,8 @@ export default function Login() {
         </button>
           
       </div>
+      <div id="buttonDiv" className='justify-self-center'></div>
+
     </form>
     <p className="mt-10 text-center text-sm text-gray-500">
       Not have account ?
