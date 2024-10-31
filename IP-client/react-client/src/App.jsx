@@ -10,6 +10,7 @@ import PubHome from './pages/PubHome';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Services from './pages/Services';
+import NavbarUser from './components/NavbarUser';
 
 
 
@@ -25,7 +26,7 @@ function PubLayout() {
 function UserLayout() {
   return (
     <>
-    <Navbar/>
+    <NavbarUser/>
     <Outlet/>
     </>
   )
@@ -60,14 +61,13 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <>
-    <Navbar/>
     <Register/>
     </>
     },
   ]
 },
 {
-  element:<PubLayout/>,
+  element:<UserLayout/>,
   loader: async () => {
     const access_token = localStorage.getItem("access_token");
     const isLoggedIn = access_token;
@@ -81,7 +81,6 @@ const router = createBrowserRouter([
     {
       path: "/services",
       element: <>
-      <Navbar/>
       <Services/>
       </>
     },
