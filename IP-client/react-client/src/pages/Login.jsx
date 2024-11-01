@@ -40,14 +40,14 @@ export default function Login() {
 
     async function handleCredentialResponse(response) {
       console.log("Encoded JWT ID token: " + response.credential);
-      await jokiApi({
+      const {data} = await jokiApi({
         method: "POST",
         url: "/google-login",
         headers: {
           token: response.credential,
         },
       })
-      localStorage.setItem("access_token", response.data.access_token)
+      localStorage.setItem("access_token", data.access_token)
       nav('/services')
     }
     useEffect(() => {
@@ -67,11 +67,7 @@ export default function Login() {
   return (
     <div className="flex min-h-full flex-col justify-center px-6 py-16 lg:px-8">
   <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-    <img
-      className="mx-auto h-10 w-auto"
-      src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-      alt="Your Company"
-    />
+    
     <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
       Sign in to your account
     </h2>

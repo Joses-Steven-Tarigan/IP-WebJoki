@@ -58,11 +58,11 @@ exports.login = async (req, res, next) => {
             });
             // console.log(payload, "<<< ini payload");
             const payload = ticket.getPayload();
-
-            let {user, created} = await User.findOrCreate({
+            console.log(payload, ">>> ini payload");
+            let [user, created] = await User.findOrCreate({
                 where: {
                     email: payload["email"],
-                    username: payload["email"],
+                    
                 },
                 defaults: {
                     email: payload["email"],
@@ -71,7 +71,7 @@ exports.login = async (req, res, next) => {
                 },
                 hooks: false,
             })
-
+            console.log(user, "<<<< ini user");
             const accessToken = generateToken(user)
            res.status(200).json({ access_token: accessToken})
         } catch (error) {

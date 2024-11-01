@@ -2,9 +2,9 @@ const {Service} = require('../models');
 
 
 exports.addService = async (req, res, next) => {
-    let { name, region, price, description, imageUrl, type, amount } = req.body
+    let { name, region, price, description, imageUrl, type } = req.body
     try {
-        let newService = await Service.create({ name, region, price, description, imageUrl, type, amount })
+        let newService = await Service.create({ name, region, price, description, imageUrl, type })
         res.status(201).json({ message: 'Service has been created' })
     } catch (error) {
         next(error)

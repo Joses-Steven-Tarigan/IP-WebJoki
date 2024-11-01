@@ -17,7 +17,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       price: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
         allowNull: false
       },
       description: {
@@ -29,9 +29,6 @@ module.exports = {
       type: {
         type: Sequelize.STRING,
         allowNull: false
-      },
-      amount: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

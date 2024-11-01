@@ -35,8 +35,8 @@ const Services = () => {
       //   return el
       // });
 
-      console.log(response.data);
       setData(response.data)
+      // console.log(response.data);
     } catch (error) {
       console.log(error, "ini error service");
       Swal.fire({
@@ -60,16 +60,11 @@ const Services = () => {
   // }
 
   return (
-    <div>
+    <div className="flex flex-wrap justify-center space-x-4 space-y-16 p-6">
       {data.map((e) => (
             <ServicesCard
               key={e.id}
-              id={e.id}
-              name={e.name}
-              region={e.region}
-              imageUrl={e.imageUrl}
-              price={e.price}
-              description={e.description}
+              data={e}
               
 
             />
@@ -79,5 +74,5 @@ const Services = () => {
 
   )
 }
-
+ 
 export default Services

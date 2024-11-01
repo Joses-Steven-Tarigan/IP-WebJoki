@@ -11,6 +11,9 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Services from './pages/Services';
 import NavbarUser from './components/NavbarUser';
+import FormCreateEdit from './components/FormCreateEdit';
+import CreateService from './pages/CreateService';
+import Myorder from './pages/MyOrder';
 
 
 
@@ -82,6 +85,18 @@ const router = createBrowserRouter([
       path: "/services",
       element: <>
       <Services/>
+      </>
+    },
+    {
+      path: "/add-service",
+      element: <>
+      <CreateService/>
+      </>
+    },
+    {
+      path: "/myorder",
+      element: <>
+      <Myorder/>
       </>
     },
 

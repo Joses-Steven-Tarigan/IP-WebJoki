@@ -14,13 +14,15 @@ export default function NavbarUser(){
   }
 
   return (
-    <nav className='absolute h-16 bg-cyan-600 flex justify-between px-24 items-center w-full'>
+    <nav className='absolute h-16 inset-y-0 left-0 bg-cyan-600 flex justify-between px-24 items-center w-full'>
       <Link to="/">
       <h1 className='text-xl font-bold tracking-wide'>JockKey</h1>
       </Link>
       <div className='space-x-6'>
         
         <Link className='hover:text-white'  to="/services">Service</Link>
+        <Link className='hover:text-white'  to="/add-service">Add Service</Link>
+        <Link className='hover:text-white'  to="/myorder">My Order</Link>
         
       </div>
       
@@ -32,3 +34,4 @@ export default function NavbarUser(){
   )
 }
 
+ 

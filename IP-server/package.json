@@ -4,7 +4,7 @@
   "description": "Individual Project RMT-54 Server Side",
   "main": "app.js",
   "scripts": {
-    "test": "jest --forceExit --runInBand"
+    "test": "jest --detectOpenHandles --verbose --forceExit"
   },
   "keywords": [],
   "author": "",

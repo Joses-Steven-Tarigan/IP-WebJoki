@@ -14,11 +14,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Invoice.init({
-    status: {
+    name: {
       type: DataTypes.STRING,
-      defaultValue: "pending"
+      allowNull: false
+
+    },
+    price : {
+      type: DataTypes.INTEGER,
+      allowNull: false
 
     }, 
+    amount: {
+      type: DataTypes.INTEGER
+    },
     serviceId: DataTypes.INTEGER,
     userId: DataTypes.INTEGER,
   }, {
