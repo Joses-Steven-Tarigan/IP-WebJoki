@@ -50,7 +50,7 @@ exports.putServiceById = async (req, res, next) => {
     }
 }
 
-exports.deletePostById = async (req, res, next) => {
+exports.deleteServiceById = async (req, res, next) => {
     try {
         let service = await Service.findByPk(req.params.id)
         if (!service) throw { name: "NotFound" }
