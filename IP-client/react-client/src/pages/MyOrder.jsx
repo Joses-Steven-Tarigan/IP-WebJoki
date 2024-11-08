@@ -45,7 +45,7 @@ export default function Myorder() {
           },
         });
         console.log(data);
-        window.snap.pay("3e5a3cf4-145f-408d-9988-b3cf067c0a9e", {
+        window.snap.pay(data.token, {
           onSuccess: function(result){
             /* You may add your own implementation here */
              console.log("Success Boss !!!");
